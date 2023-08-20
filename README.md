@@ -11,6 +11,7 @@ This course requires a few tools that are necessary to work on the lab and cours
 - RISC-V GNU Compiler Toolchain
 - Spike RISC-V ISA Simulator
 - RISC-V Proxy Kernel and Boot Loader
+
 All of these can be installed by the setup script provided by the instructor:
 ```
 git clone https://github.com/kunalg123/riscv_workshop_collaterals.git
