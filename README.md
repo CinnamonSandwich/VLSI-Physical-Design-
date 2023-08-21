@@ -16,7 +16,7 @@ All of these can be installed by the setup script provided by the instructor:
 ```
 git clone https://github.com/kunalg123/riscv_workshop_collaterals.git
 cd riscv_workshop_collaterals
-chmod +x run.sh
+chmod +x run.sh 
 ./run.sh
 ```
 ## Lab Assignments
@@ -35,6 +35,38 @@ The output obtained is :
 
 
 ![Screenshot from 2023-08-21 16-19-17](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/1810a794-fd5f-4c3a-84f2-74b75a565c81)
+
+
+#### Assignment-2
+The program is disassebled to run on riscv processors. This code is compiled using riscv64-gcc.
+
+
+
+
+![Screenshot from 2023-08-21 17-19-53](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/77328cbf-1773-4a4d-8c95-f1f62e06f5a9)
+
+
+
+The output is obtained using the command :
+```
+riscv64-unknown-elf-objdump -d 1ton.o | less
+```
+and then the output is searched for the main function by ```/main```
+The output of the main function obtained is as follows:
+
+
+
+
+
+
+
+
+
+
+![Screenshot from 2023-08-21 17-23-49](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/3d11e323-f233-4d4a-beef-9bbdbb6429d5)
+
+
+
 
 
 
