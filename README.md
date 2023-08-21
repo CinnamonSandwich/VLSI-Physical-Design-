@@ -22,6 +22,11 @@ chmod +x run.sh
 ## Lab Assignments
 ### Day-1
 #### Assignment 1
+Write a program to display the sum of numbers from 1 to n and compile with x86-gcc
+
+The code is as follows,
+
+
 
 
 
