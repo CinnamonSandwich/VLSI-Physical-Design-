@@ -51,7 +51,7 @@ The output is obtained using the command :
 ```
 riscv64-unknown-elf-objdump -d 1ton.o | less
 ```
-and then the output is searched for the main function by ```/main```
+And then the output is searched for the main function by ```/main```
 The output of the main function obtained is as follows:
 
 
@@ -64,6 +64,12 @@ The output of the main function obtained is as follows:
 
 
 ![Screenshot from 2023-08-21 17-23-49](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/3d11e323-f233-4d4a-beef-9bbdbb6429d5)
+
+
+
+
+
+Around 15 instructuons are returned.
 
 
 
