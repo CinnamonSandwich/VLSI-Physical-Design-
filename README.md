@@ -71,6 +71,27 @@ The output of the main function obtained is as follows:
 
 Around 15 instructuons are returned.
 
+Now instead of ```-O1``` , ```-Ofast``` is substitued,
+we get,
+
+
+
+
+![Screenshot from 2023-08-21 17-37-08](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/347e056c-6bc9-4721-b6d1-de2d5ad54316)
+
+
+and the output is as follows.
+
+
+
+
+![Screenshot from 2023-08-21 17-40-26](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/90c8fd9c-0cbf-4e8a-ad91-2ea943cd0276)
+
+
+It is seen that 12 instructions are returned this time.
+
+
+
 
 
 
