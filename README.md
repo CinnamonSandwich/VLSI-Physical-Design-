@@ -19,6 +19,10 @@ cd riscv_workshop_collaterals
 chmod +x run.sh
 ./run.sh
 ```
+## Lab Assignments
+### Day-1
+#### Assignment 1
+
 
 
 
