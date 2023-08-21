@@ -24,7 +24,18 @@ chmod +x run.sh
 #### Assignment 1
 Write a program to display the sum of numbers from 1 to n and compile with x86-gcc
 
-The code is as follows,
+The code is as follows, 
+
+
+![Screenshot from 2023-08-21 16-24-17](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d3f8f752-cc79-42e3-b07b-5357b8256a97)
+
+
+
+The output obtained is : 
+
+
+![Screenshot from 2023-08-21 16-19-17](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/1810a794-fd5f-4c3a-84f2-74b75a565c81)
+
 
 
 
