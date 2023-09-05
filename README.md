@@ -93,6 +93,11 @@ It is seen that 12 instructions are returned this time.
 
 #### Assignment-3
 
+Here we shall execute and debug ```1ton.c``` file and use the riscv64-gcc compiler:
+
+Run the command ,
+'''
+
 
 
 
