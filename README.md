@@ -126,6 +126,16 @@ and we see the register value has changed after execution,
 
 ![Screenshot from 2024-01-15 14-22-01](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/cb2752c0-09dd-4e04-a393-ec2976be0bd6)
 
+The stack pointer updated value is seen by,
+
+![Screenshot from 2024-01-15 14-23-45](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/f3aafff7-3ce2-44d1-9053-a32e8e89f3e3)
+
+It is seen that the value has changed by 10.
+
+#### Assignment 4
+
+
+
 
 
 
