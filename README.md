@@ -96,9 +96,35 @@ It is seen that 12 instructions are returned this time.
 Here we shall execute and debug ```1ton.c``` file and use the riscv64-gcc compiler:
 
 Run the command ,
-```riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o rv.out 1ton.c```
- The following output is obtained,
+```
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o rv.out 1ton.c
+```
+
+The following output is obtained,
  
+![Screenshot from 2024-01-15 14-14-53](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/24d9e559-ffa2-451b-8d07-39a275bf2947)
+
+To execute the program we now use the Spike RISCV ISA Simulator.
+
+![Screenshot from 2024-01-15 14-16-45](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/2b91bb6e-9af2-4e59-8d25-c5f8d0c8ae22)
+
+Debugging is done by starting Spike in debug mode by using the command,
+```
+spike -d pk rv.out
+```
+ The program counter is moved from 0 to the first instruction using ,
+ ```
+until pc 0 100b0
+```
+and to find the contents of register a0 before being written we use,
+```
+reg 0 a0
+```
+
+The next instruction is executed by pressing enter,
+and we see the register value has changed after execution,
+
+![Screenshot from 2024-01-15 14-22-01](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/cb2752c0-09dd-4e04-a393-ec2976be0bd6)
 
 
 
