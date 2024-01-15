@@ -96,7 +96,9 @@ It is seen that 12 instructions are returned this time.
 Here we shall execute and debug ```1ton.c``` file and use the riscv64-gcc compiler:
 
 Run the command ,
-'''
+'''riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o rv.out 1ton.c'''
+
+
 
 
 
