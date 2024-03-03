@@ -218,6 +218,53 @@ The output now is ,
 
 ![Screenshot from 2024-03-03 13-38-08](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/e6058770-4485-4520-94d5-24500686494c)
 
+This concludes the assignment.
+
+
+## Day 2 Assignments
+
+### Assignment 1
+
+The objective of this assignment is to write `load.s` and `1to9_custom.c` as descibed in the algorithm
+- `load.s`
+```asm
+.section .text
+.global load
+.type load, @function
+
+load:
+	add	a4, a0, zero
+	add	a2, a0, a1
+	add	a3, a0, zero
+loop:	add	a4, a3, a4
+	addi	a3, a3, 1
+	blt	a3, a2, loop
+	add	a0, a4, zero
+	ret
+```
+- `1to9_custom.c`
+```c
+cat 1to9_custom.c 
+#include <stdio.h>
+
+extern int load(int x, int y);
+
+int main()
+{
+	int result = 0;
+	int count = 9;
+	result = load(0x0, count + 1);
+	printf("Sum of nos. from 1 to %d is %d\n", count, result);
+}
+```
+This concludes the assignment 1
+
+### Assignment 2
+The objective of this assignment is to compile the code with the files and options with the following command:
+```bash
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o 1to9_custom.o 1to9_custom.c load.s
+```
+
 
 
 
