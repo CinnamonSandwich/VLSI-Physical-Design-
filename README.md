@@ -148,6 +148,14 @@ int main(){
 	return 0;
 }
 ```
+To compile and run with riscv64-gcc:
+```bash
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o limits.o unsignedLimits.c
+spike pk limits.o
+```
+The output obtained is ,
+
+
 
 
 
