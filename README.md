@@ -155,6 +155,73 @@ spike pk limits.o
 ```
 The output obtained is ,
 
+![Screenshot from 2024-03-03 13-28-55](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d86e2189-6d5e-4d1f-ad96-50ce406def89)
+
+To test if it is the limit, we modify as follows:
+```c
+unsigned long long int max = (unsigned long long int) (pow(2,127) -1);
+unsigned long long int min = (unsigned long long int) (pow(2,127) *(-1));
+```
+The output obtained is the same.
+
+![Screenshot from 2024-03-03 13-28-55](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d86e2189-6d5e-4d1f-ad96-50ce406def89)
+
+ To check whether the values do get changed, we modify the code to:
+```c
+unsigned long long int max = (unsigned long long int) (pow(2,5) -1);
+unsigned long long int min = (unsigned long long int) (pow(2,5) *(-1));
+```
+The output is ,
+
+![Screenshot from 2024-03-03 13-33-12](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/441dc841-8cc8-4b2d-b416-70014fb44533)
+
+Now we test it with another program,
+We test it with the program  `signedLimits.c` 
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+	long long int max = (long long int) (pow(2,5) -1);
+	long long int min = (long long int) (pow(2,5) *(-1));
+	printf("lowest number represented by 64-bit integer is %lld\n",min);
+	printf("highest number represented by 64-bit integer is %lld\n",max);
+	return 0;
+}
+```
+
+To compile and run with riscv64-gcc:
+```bash
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o slimits.o signedLimits.c
+spike pk slimits.o
+```
+The output obtained is,
+
+![Screenshot from 2024-03-03 13-36-11](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/f26fa817-94e1-4c43-b575-87eaaa571397)
+
+To test if it is the limit, we modify as follows:
+```c
+long long int max = (long long int) (pow(2,127) -1);
+long long int min = (long long int) (pow(2,127) *(-1));
+```
+The output is the same:
+
+![Screenshot from 2024-03-03 13-36-11](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/f26fa817-94e1-4c43-b575-87eaaa571397)
+
+To check whether the values do get changed, we modify the code to:
+```c
+long long int max = (long long int) (pow(2,5) -1);
+long long int min = (long long int) (pow(2,5) *(-1));
+```
+
+The output now is ,
+
+![Screenshot from 2024-03-03 13-38-08](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/e6058770-4485-4520-94d5-24500686494c)
+
+
+
+
+
 
 
 
