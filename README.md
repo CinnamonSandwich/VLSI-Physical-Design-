@@ -264,6 +264,60 @@ The objective of this assignment is to compile the code with the files and optio
 ```bash
 riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o 1to9_custom.o 1to9_custom.c load.s
 ```
+![Screenshot from 2024-03-03 13-42-15](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/c7f6f89c-cd19-4d8e-9fcf-d5a20c3af1b4)
+
+To run, use the following command:
+```bash
+spike pk 1to9_custom.o
+```
+
+The output generated is,
+
+![image](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/3a267bc7-64c7-4184-a658-ecef2d3da6e3)
+
+Upon inspecting the object dump we find,
+
+![image](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/03642401-68f0-4a44-ad8a-198c3f7ce8e9)
+
+This concludes the assignment 2
+
+## Assignment 3
+The objective of this assignment is to run C program on PicoRV32 
+
+Make the set-up script executable, and execute
+```bash
+chmod +x rv32im.sh
+./rv32im.sh
+```
+![image](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/6f490a96-0a31-4670-8e35-f762ebe7e603)
+
+
+![image](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/2649f799-7e3d-43c7-9afa-906e169ad346)
+
+
+![image](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/c20e9cc6-74db-41f1-8642-c85cebb13866)
+
+This concludes the assignment 3
+
+## Day 1 Assignments - RTL
+
+### Lab 1
+The objective of the assignment is to simulate `good_mux.v` and seeing outputs in **gtkwave**
+
+
+![image](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/831aa5b0-0dca-47fd-afe2-98c7d98f00cb)
+
+
+This concludes lab 1
+
+
+
+
+
+
+
+
+
 
 
 
