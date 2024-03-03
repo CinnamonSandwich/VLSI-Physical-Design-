@@ -133,6 +133,21 @@ The stack pointer updated value is seen by,
 It is seen that the value has changed by 10.
 
 #### Assignment 4
+The objective of this assignment is to test the limits of `long long int` on RV64I, on `unsigned` and `signed` integer.
+
+Write the program `unsignedLimits.c` 
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+	unsigned long long int max = (unsigned long long int) (pow(2,64) -1);
+	unsigned long long int min = (unsigned long long int) (pow(2,64) *(-1));
+	printf("lowest number represented by unsigned 64-bit integer is %llu\n",min);
+	printf("highest number represented by unsigned 64-bit integer is %llu\n",max);
+	return 0;
+}
+```
 
 
 
