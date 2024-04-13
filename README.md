@@ -310,6 +310,97 @@ The objective of the assignment is to simulate `good_mux.v` and seeing outputs i
 
 This concludes lab 1
 
+### Lab 2
+The objective of this lab is to smth `good_mux.v` in YoSys 
+
+First the liberty file is read, 
+
+<img width="405" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/c711f68f-747f-4441-bf2b-8322c99ce9fa">
+
+Then the verilog file is read,
+
+<img width="400" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/94f1dc2c-d2de-46ca-b0bc-768b71dd7bf6">
+
+Then the top-level design is synthesized,
+```
+yosys> synth -top good_mux 
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \good_mux
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \good_mux
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+<removed extended output>
+
+3.25. Printing statistics.
+
+=== good_mux ===
+
+   Number of wires:                  4
+   Number of wire bits:              4
+   Number of public wires:           4
+   Number of public wire bits:       4
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $_MUX_                          1
+
+3.26. Executing CHECK pass (checking for obvious problems).
+Checking module good_mux...
+Found and reported 0 problems.
+```
+Then the gate level file is generated,
+```
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+4. Executing ABC pass (technology mapping using ABC).
+
+4.1. Extracting gate netlist of module `\good_mux' to `<abc-temp-dir>/input.blif'..
+Extracted 1 gates and 4 wires to a netlist network with 3 inputs and 1 outputs.
+
+4.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /home/alphadelta1803/Desktop/folder/sky130RTLDesignAndSynthesisWorkshop/verilog_files/../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.11 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+<removed output>
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+4.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+```
+
+The part in which we are interested is ,
+```
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        1
+```
+
+By using the `show` command we can view the logic diagram,
+
+<img width="595" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/a7511660-8973-4ccf-8935-c29e288e14cf">
+
+
+
+
 
 
 
