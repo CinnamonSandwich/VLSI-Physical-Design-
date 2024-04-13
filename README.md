@@ -398,6 +398,30 @@ By using the `show` command we can view the logic diagram,
 
 <img width="595" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/a7511660-8973-4ccf-8935-c29e288e14cf">
 
+This concludes the Lab 2 as well as the Day 1 assignments for RTL.
+
+## Day 2 Assignments - RTL
+
+We have a verilog file `multiple_modules.v`,
+
+```verilog
+module sub_module2 (input a, input b, output y);
+	assign y = a | b;
+endmodule
+
+module sub_module1 (input a, input b, output y);
+	assign y = a&b;
+endmodule
+
+
+module multiple_modules (input a, input b, input c , output y);
+	wire net1;
+	sub_module1 u1(.a(a),.b(b),.y(net1));  //net1 = a&b
+	sub_module2 u2(.a(net1),.b(c),.y(y));  //y = net1|c ,ie y = a&b + c;
+endmodule
+
+```
+
 
 
 
