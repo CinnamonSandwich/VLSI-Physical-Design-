@@ -1188,8 +1188,112 @@ The GLS to Gate-Level Simulation is,
 
 <img width="599" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/7846ef71-78e3-4dc2-a78c-c78e5adf1b6e">
 
-
 This marks the end of lab 2.
+
+
+
+# Physical Design 
+
+The following labs will deal with different aspects of physical design with OPENLANE
+
+The labs will now be done on the VM image provided by VSD.
+
+## Day 1
+
+### Topic 1: Design Preparation Step
+
+This lab will deal with the design and prepration step in the process of Physical Design 
+
+We do this by,
+
+Running `flow.tcl` and adding package and design
+
+<img width="623" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/976f673b-04a5-4eb3-8add-eb50852da3b5">
+
+
+### Topic 2: Review files after design prep and run synthesis
+
+We look for the `tmp` folder inside `runs` folder,
+
+Going into the `merged.lef` file we get,
+
+<img width="623" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/457538a0-c843-42b2-86bb-716c94aefac0">
+
+By performing `run_synthesis` we get,
+
+<img width="622" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/0a7649cd-8490-4711-a09b-a8a99e2c064f">
+
+
+### Topic 3: Steps to characterize synthesis results
+
+ We start by calculating flop ratio,
+
+ ![run_synthesis_stats](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/1e041131-c750-4f8b-8781-05312ec105fe)
+
+```
+dfxtp_4 = 1613,
+Number of cells = 18036,
+Flop ratio = 8.94%
+```
+
+The results in `picorv32a.synthesis.v` show ,
+
+<img width="620" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/181ff941-8426-48e5-b502-4ff82969632c">
+
+
+This marks the end of day 1.
+
+## Day 2
+
+### Topic 1: Steps to run floorplan using OpenLANE
+
+We generate the floorplan,
+
+<img width="621" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/ef697767-c8c2-405a-bc2e-bd1e40cc4803">
+
+
+### Topic 2: Review floorplan files and steps to view floorplan
+
+The reviewing is done in magic,
+
+By the following command,
+`magic -T /usr/local/tools/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &`
+
+<img width="622" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/8f543cde-1f2c-41d8-83f9-e582d9207285">
+
+
+### Topic 3: Reviewing floorplan layout in Magic
+
+By zooming in we get,
+
+<img width="620" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/7870c96b-30bd-4d35-8469-e090b125988c">
+
+Further zooming in,
+
+<img width="622" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d6e4b852-0159-43cf-92c8-8ff3dd878fbb">
+
+The report is,
+
+<img width="276" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/6ea8d255-aa39-4510-8534-1195366677b8">
+
+
+### Topic 4: Congestion aware placement using RePlAce
+
+ `picorv32a.placement.def.png` helps us to take a look at the placement of cells,
+
+![picorv32a placement def](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/63690c8d-ce59-49c0-ba8a-184bb6c28f23)
+
+
+Opening in `magic` we get,
+
+<img width="620" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/07c1066d-5ffb-481f-9549-f010012a0189">
+
+Zooming in we see,
+
+<img width="623" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/65e91020-5127-473c-9020-0e05dd7c7165">
+
+
+This marks the end of day 2.
 
 
 
