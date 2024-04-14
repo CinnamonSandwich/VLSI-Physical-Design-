@@ -869,6 +869,335 @@ By using `show` command we get,
 
 This concludes lab 2.1
 
+#### Lab 2.2
+
+In this lab we will be simulating and synthesizing `dff_const2.v`
+
+Code:
+```verilog
+module dff_const2(input clk, input reset, output reg q);
+	always @(posedge clk, posedge reset)
+		begin
+        	if(reset)
+                q <= 1'b1;
+        	else
+                q <= 1'b1;
+		end
+endmodule
+```
+Simulation,
+
+<img width="599" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/b996b9de-ceaf-42a5-bd9b-70b6bb68726c">
+
+Synthesis report ,
+
+<img width="572" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/61e60c62-efbf-4701-aae5-e58cbd30106c">
+
+By using `show` command we get,
+
+<img width="591" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/0c3d27b9-a523-4878-8a50-c3b4f1e4db36">
+
+This concludes lab 2.2
+
+#### Lab 2.3
+
+In this lab we will be simulating and synthesizing `dff_const3.v`
+
+Code:
+```verilog
+module dff_const3(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+        if(reset)
+        begin
+                q <= 1'b1;
+                q1 <= 1'b0;
+        end
+        else
+        begin
+                q1 <= 1'b1;
+                q <= q1;
+        end
+end
+endmodule
+```
+Simulation ,
+
+<img width="602" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/11392af3-984c-4e49-a2c9-f22a4ef66dd1">
+
+Synthesis report,
+
+<img width="514" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/e4bb6e1d-630a-42b5-91d4-ecabbb686766">
+
+By using `show` command we get,
+
+<img width="598" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/fc5a15f5-bf84-403c-a235-b6f600739eb5">
+
+This concludes lab 2.3
+
+#### Lab 2.4
+In this lab we will be simulating and synthesizing `dff_const4.v`
+
+Code:
+```verilog
+module dff_const4(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+        if(reset)
+        begin
+                q <= 1'b1;
+                q1 <= 1'b1;
+        end
+        else
+        begin
+                q1 <= 1'b1;
+                q <= q1;
+        end
+end
+
+endmodule
+```
+
+Simulation,
+
+<img width="602" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/2b118c02-ada2-4678-bb5b-1b4a04166091">
+
+Synthesis report,
+
+<img width="542" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/fa807be5-9985-4405-aab9-99a8b8b9c98b">
+
+By using `show` command we get,
+
+<img width="594" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/c4a25a34-baac-4430-a41a-cc904994e0ba">
+
+This concludes lab 2.4
+
+#### Lab 2.5
+In this lab we will be simulating and synthesizing `dff_const5.v`
+
+Code:
+```verilog
+module dff_const5(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+        if(reset)
+        begin
+                q <= 1'b0;
+                q1 <= 1'b0;
+        end
+        else
+        begin
+                q1 <= 1'b1;
+                q <= q1;
+        end
+end
+
+endmodule
+```
+
+Simulation,
+
+<img width="596" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/81489b4b-605b-41a2-95ba-cf39caef4f11">
+
+Synthesis report,
+
+<img width="557" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/a645d22f-380a-40dc-abc7-38b9ff56b196">
+
+By using `show` command we get,
+
+<img width="590" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/4833e644-0856-4a0a-b7e6-15337c168573">
+
+This concludes Lab 2.5 and marks the end of Lab 2
+
+### Lab 3
+This series of labs will deal with Sequential Optimisations for Unused Outputs
+
+
+#### Lab 3.1
+
+In this lab we will be synthesizing `counter_opt.v`
+
+Code:
+```verilog
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = count[0];
+
+always @(posedge clk ,posedge reset)
+begin
+        if(reset)
+                count <= 3'b000;
+        else
+                count <= count + 1;
+end
+endmodule
+```
+
+Synthesis report:
+
+<img width="504" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/43b24991-5447-4768-a31a-014005ddb7ef">
+
+By using `show` command we get,
+
+<img width="596" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/27df4225-26de-4b3e-a9c0-fd33c1471788">
+
+This concludes lab 3.1
+
+#### Lab 3.2
+In this lab we will be synthesizing `counter_opt2.v`
+
+Code:
+```verilog
+module counter_opt2 (input clk , input reset , output q);
+reg [2:0] count;
+assign q = (count[2:0] == 3'b100);
+
+always @(posedge clk ,posedge reset)
+begin
+        if(reset)
+                count <= 3'b000;
+        else
+                count <= count + 1;
+end
+
+endmodule
+```
+
+Synthesis report:
+
+![counter_opt2_synth_report](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/8342c728-6863-4070-b902-63a308361dd6)
+
+
+By using `show` command we get,
+
+<img width="593" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/129d7619-92a1-40f2-8fa8-99ceea158b78">
+
+This marks the end of lab 3
+
+## Day 4 Assignments - RTL
+
+### Lab 1 
+This series of labs will deal with GLS and Synthesis-Simulation Mismatch.
+
+#### Lab 1.1
+
+In this lab we will be simulating, synthesizing and finding the GLS to Gate Level Simulation of `ternary_operator_mux.v`
+
+Code :
+
+```verilog
+module ternary_operator_mux (input i0 , input i1 , input sel , output y);
+	assign y = sel?i1:i0;
+endmodule
+```
+Simulation,
+
+<img width="602" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/75827fca-d6c8-4d4f-bfdc-cfa6d977d5b4">
+
+Synthesis report,
+
+<img width="394" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/c177cebd-f4f4-4760-b6a6-036b2a1e7890">
+
+By using the `show` command we get,
+
+<img width="593" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d30d98ff-05a5-40f8-b1cf-33734bd9bba7">
+
+
+The GLS to Gate-Level Simulation is,
+
+<img width="602" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/f2bd82b3-ea8a-4274-8fec-88e37cef8bec">
+
+This concludes lab 1.1
+
+
+#### Lab 1.2
+
+In this lab we will be simulating, synthesizing and finding the GLS to Gate Level Simulation of `bad_mux.v`
+
+Code:
+
+```verilog
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
+
+Simulation,
+
+<img width="604" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/e7bf6ab1-a1ac-4711-86ba-e54f82ec505a">
+
+Synthesis report is,
+
+<img width="398" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/c5151c78-d808-4469-bd2e-e05bc5d4d042">
+
+By using the `show` command we get,
+
+<img width="598" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/3f872033-cded-4f4f-965b-6ca3d3c3c2d2">
+
+The GLS to Gate-Level Simulation is,
+
+<img width="602" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d2008cbb-b9b1-4ff2-9cba-d6c690f20aab">
+
+This concludes lab 1.2 and marks the end of lab 1
+
+
+### Lab 2
+
+This lab deals with Synth-Sim Mismatch for Blocking Statement
+
+We Simulate, synthesize and find the GLS to Gate-Level Simulation of `blocking_caveat.v`
+
+Code:
+
+```verilog
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+	d = x & c;
+	x = a | b;
+end
+endmodule
+```
+Simulation,
+
+<img width="599" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/941723f1-961d-450b-b05d-d80de7cb9d29">
+
+
+Synthesis report is,
+
+<img width="395" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/fc699373-77d6-43de-9e54-07d856f9b53c">
+
+By using the `show` command we get,
+
+<img width="596" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/2815b768-b436-4862-b942-9c87427cba09">
+
+The GLS to Gate-Level Simulation is,
+
+<img width="599" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/7846ef71-78e3-4dc2-a78c-c78e5adf1b6e">
+
+
+This marks the end of lab 2.
+
+
+
+
+
+
+
+
 
 
 
