@@ -1194,7 +1194,7 @@ This marks the end of lab 2.
 
 # Physical Design 
 
-The following labs will deal with different aspects of physical design with OPENLANE
+The following labs will deal with different aspects of physical design with various open source tools.
 
 The labs will now be done on the VM image provided by VSD.
 
