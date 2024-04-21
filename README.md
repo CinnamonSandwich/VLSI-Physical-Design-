@@ -1295,6 +1295,31 @@ Zooming in we see,
 
 This marks the end of day 2.
 
+## Day 3
+
+### Topic 1: I/O Placer Revision
+
+The original output is as such,
+
+<img width="238" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/2163b302-3aad-465a-8c25-402aeb22ded3">
+
+Looking at the 'floorplan.tcl` file,
+
+<img width="163" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/999820c7-cd8d-406a-96e4-edea7aadfa9b">
+
+the modifications are made as follows,
+
+<img width="194" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/a2452ff1-4c28-43fc-93fb-f91e0e2c1ce8">
+
+The final I/O structure obtained is ,
+
+<img width="620" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/783c0b3c-62b3-4092-bb8b-395f52db61d0">
+
+
+### Topic 2: VSD Std Cell Design
+
+
+
 
 
 
