@@ -1318,6 +1318,309 @@ The final I/O structure obtained is ,
 
 ### Topic 2: VSD Std Cell Design
 
+The git clone is done,
+
+<img width="622" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d4628f4f-f70d-4bb5-8d13-9b417e253827">
+
+`sky130A.tech` is copied,
+
+<img width="545" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/3da997a5-3092-4588-bef5-97a12b6aa3af">
+
+By running `magic -T sky130A.tech sky130_inv.mag` we get,
+
+<img width="616" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/2cf26f4c-8e05-4204-91d8-722f45e7a48e">
+
+### Topic 3: Sky130 basic layers layout and LEF
+
+The CMOS layout is shown as follows,
+
+<img width="618" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d7cadc2d-d7a6-45df-89a2-ef4c35df080c">
+
+By using the `what` command we get,
+
+<img width="404" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/5bed48d3-08b0-4f5b-9e8d-60571920d15e">
+
+### Topic 4: Create std cell layout and extract SPICE netlist
+
+The following commands are run for extraction with the inclusion of parasitic capacitances,
+
+<img width="439" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d5b3209d-b040-4755-b907-79415f9df70d">
+
+`sky130_inv.spice` is the result and its contents are ,
+
+<img width="550" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/76263e3f-8360-4a7d-9a67-27d5201abf65">
+
+<img width="613" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/6bc27b85-85bd-4f02-a549-8342960f58fe">
+
+### Topic 5: Create Final SPICE Deck
+
+To find minimum value of layout window,
+
+<img width="619" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/338bef76-0328-4953-ab28-173eaab8cdb0">
+
+Edits are made to `sky130_inv.spice`
+
+<img width="497" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/f80f632a-b838-4c4b-a908-43665a98fb88">
+
+### Topic 6: Using Sky130 Models to characterise inverter
+
+Running file using `ngspice`.
+
+<img width="628" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/00d51998-268f-4bdf-9274-0f76029cb3ca">
+
+The plot of y vs time a ,
+
+<img width="623" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/57a3f83d-7736-4724-9ac6-f72a0108ab0c">
+
+The rise time is ,
+
+![img](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/d4756a7f-04bb-40ad-96dd-80fbca0eb7df)
+
+```
+2.25075 * 10^-09 - 2.184 * 10^ -09 = 0.006675 * 10^-09s
+```
+
+Finding Propagation delay,
+
+<img width="439" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/06a3024f-f2a0-48e1-9ee8-317693c53590">
+
+```
+2.21379 * 10^-09 - 2.15 * 10^-09 = 0.06379 * 10^-09s
+```
+
+### Topic 7: Downloading DRC tests
+
+The download is done via `wget` and extracted to `Desktop`,
+Running the DRC tests in `magic` with `magic -d XR` we get,
+
+<img width="623" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/c48b2878-fc19-44cd-baeb-a210f03d2995">
+
+Opening `met3.mag`
+
+<img width="399" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/474a6f7d-a806-4391-817c-2ba6d6b2f705">
+
+`why` lets us look at errors,
+
+<img width="622" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/eaa7f7bf-4755-48a1-9e4b-852778d6ffe0">
+
+Edits are made to `sky130A.tech`,
+
+<img width="571" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/f5f1be66-6182-486d-8738-1fdc981ef958">
+
+A reload gives us,
+
+<img width="497" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/7db124b8-68dc-4270-93eb-e0e893a31847">
+
+The error is fixed.
+
+### Topic 8: DRC as geometrical construct
+
+Opening `nwell.mag` and typing the following
+
+<img width="182" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/3f0d1260-cd79-40fc-a0f8-bb1890559333">
+
+The result obtained is,
+
+<img width="440" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/edbb4eef-2992-424f-b6c9-a21b515273c2">
+
+### Topic 9: Find Missing/Incorrect rules
+
+The following shows a  violation of `nwell.4`,
+
+<img width="228" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/cafa1217-e1f6-48d1-a8e5-e46d858060a7">
+
+The following changes are made,
+
+<img width="257" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/fdb65891-f970-4663-90cc-b0c7adbd8036">
+
+Reload using 
+```
+tech load sky130A.tech
+drc check
+drc style drc(full)
+drc check
+```
+
+The Error still exists, we fix it by making a copy of it and adding an `nsubstratecontact` in it,
+
+<img width="361" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/ee338261-4d05-42e7-af12-9c54450fa20d">
+
+This marks the end of Day 3.
+
+## Day 4
+
+### Topic 1: Convert Grid Info to Track Info
+
+Taking a look at the `tracks.info` file we see,
+
+<img width="371" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/5be70ef7-6148-4ef6-876f-75a6a59983d0">
+
+The 'tracks.info' file is used during the routing stage.
+Routes here are the metal traces.
+The first value indicates the offset and 2nd value indicates the pitch along provided direction,
+
+<img width="212" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/5ab908b0-ab47-474e-80e0-1bcc4d977216">
+
+Now we converge the grid definition in the layout to track definition, by typing the following command
+```grid 0.46um 0.34um 0.23um 0.17um```
+
+The result is as follows,
+
+<img width="620" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/b25cdacf-28a6-4d62-8f7e-92fae809c871">
+
+### Topic 2: Convert Magic Layout to Standard Cell LEF
+
+We can make our own .mag file by typing,
+```
+save sky130_vsdinv.mag
+```
+and .lef file by typing,
+```
+lef write
+```
+Typing ```cat sky130_vsdinv.lef```.
+
+<img width="216" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/49a9785c-b4e4-4a1b-a5f1-a98a6bafbaaf">
+
+### Topic 3: Include New Cell in Synthesis
+We copy the .lef file that we created to the 'src' folder of picorv32a folder
+```bash 
+cp sky130_vsdinv.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/deigns/picorv32a/src
+cp sky130_fd_sc_hd__* /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/deigns/picorv32a/src
+```
+
+Modifying the 'config.tcl' 
+
+<img width="476" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/adb6c3f4-cc35-49c0-adcd-be3d66270dcb">
+
+We open the OpenLANE interactive window and run the following:
+```
+package require openlane 0.9
+prep -design picorv32a -tag 16-09_19-58 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs 
+run_synthesis
+```
+
+The result obtained is, Result of ```run_synthesis```,
+
+
+![6](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/7a388df3-6b64-43f9-ae7a-9d7b5612c372)
+
+![7](https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/82f71607-30d4-43c8-97cd-8f79b7eeccf1)
+
+To run floorplan and placement we type
+```
+init_floorplan
+run_placement
+```
+
+Now to view the design we type the command
+```
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+
+The output obtained is ,
+
+<img width="596" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/24a15456-abdb-45b7-915c-742b3bf46b97">
+
+Zooming in to find `sky130_vsdinv`,
+
+<img width="588" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/66fda945-b1ce-4648-a604-fd3e22287430">
+
+### Topic 4: Configure OpenSTA for Post-Synth Timing Analysis
+
+We create 'pre_sta.conf' in openlane directory with the following commands,
+```configuration
+set_cmd_units -time n -capacitance pF -current mA -voltage V -resistance kOhm -distance um
+read_liberty -max /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130/sky130_fd_sc_hd__slow.lib
+read_liberty -min /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130/sky130_fd_sc_hd__fast.lib
+read_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/18-09_04-29/results/synthesis/picorv32a.synthesis.v
+link_design picorv32a
+read_sdc /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/my_base.sdc
+report_checks -path_delay min_max -fields {slew trans net cap input_pin}
+report_tns
+report_wns
+```
+
+We create `my_base.sdc` in `openlane/designs/picorv32a/src/` with the following contents
+```
+set ::env(CLOCK_PORT) clk
+set ::env(CLOCK_PERIOD) 12.000
+
+set ::env(SYNTH_DRIVING_CELL) sky130_fd_sc_hd__inv_8
+set ::env(SYNTH_DRIVING_CELL_PIN) Y
+set ::env(SYNTH_CAP_LOAD) 17.65
+set ::env(SYNTH_MAX_FANOUT) 4
+
+create_clock [get_ports $::env(CLOCK_PORT)]  -name $::env(CLOCK_PORT)  -periof $::env(CLOCK_PERIOD)
+set IO_PCT 0.2
+set input_delay_value [expr $::env(CLOCK_PERIOD) * $IO_PCT]
+set output_delay_value [expr $::env(CLOCK_PERIOD) * $IO_PCT]
+puts "\[INFO\]: Setting output delay to $output_delay_value"
+puts "\[INFO\]: Setting input delay to $input_delay_value"
+
+set_max_fanout $::env(SYNTH_MAX_FANOUT) [current_design]
+
+set clk_indx [lsearch [all_inputs] [get_port $::env(CLOCK_PORT)]]
+#set rst_indx [lsearch [all_inputs] [get_port resetn]]
+set all_inputs_wo_clk [lreplace [all_inputs] $clk_indx $clk_indx]  
+#all_inputs_wo_clk_rst [lreplace $all_inputs_wo_clk $rst_indx $rst_indx] 
+set all_inputs_wo_clk_rst $all_inputs_wo_clk 
+
+#correct resetn
+set_input_delay $input_deleat_value -clock [get_clocks $::env(CLOCK_PORT)] $all_inputs_wo_clk_rst
+set_output_delay $output_delay_value  -clock [get_clocks $::env(CLOCK_PORT)] [all_outputs]
+
+#TODO set this as parameter
+set_drivinf_cell -lib_cell $::env(SYNTH_DRIVING_CELL) -pin $::env(SYNTH_DRIVING_CELL_PIN) [all_inputs]
+set cap_load [expr $::env(SYNTH_CAP_LOAD) / 1000.0]
+puts "\[INFO\]: Setting load to: $cap_load"
+set_load $cap_load [all_outputs]
+```
+
+To run the timing analysis we use,
+```
+sta pre_sta.conf
+```
+The displayed result shows a stack violation,
+
+<img width="277" alt="image" src="https://github.com/CinnamonSandwich/VLSI-Physical-Design-/assets/92498341/c7aca74e-cd61-4608-8471-c7c1398ce53c">
+
+Setting MAX_FANOUT value to 4 with `set ::env(SYNTH_MAX_FANOUT) 4` fixes the issue.
+
+### Topic 5: Run CTS
+
+To run CTS we type the following,
+```
+run_cts
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
